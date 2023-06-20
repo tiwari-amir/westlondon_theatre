@@ -1,169 +1,120 @@
-<?php
-include('config.php');
-session_start();
-date_default_timezone_set('Europe/London');
-?>
-<!DOCTYPE HTML>
 <html>
 <head>
-<title>WestLondon Theatre | Welcome</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-<style>
-	body {
-		background-image: url("https://c1.wallpaperflare.com/path/570/413/91/interior-theatre-theater-empty-theater-87d7d2e44fd62221f578a00975ca3cab.jpg");
-		background-size: cover;
-		margin: 0;
-		padding: 0;
-	}
+	<title>Welcome to WestLondon Theatre</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+		.container {
+			margin-top: 50px;
+		}
 
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 20px;
-	}
+		.container h2 {
+			font-size: 36px;
+			font-weight: bold;
+			margin-bottom: 20px;
+			color: #ada5a6;
+		}
 
-	.header {
-		background: none;
-		padding: 20px 0;
-	}
+		.container p {
+			font-size: 20px;
+			margin-bottom: 30px;
+			color: #ffd1d6;
+		}
 
-	.h-logo {
-		margin-top: 10px;
-		margin-right: 10px;
-	}
+		.container .btn {
+			padding: 10px 20px;
+			font-size: 18px;
+			font-weight: bold;
+			background-color: #333;
+			color: #fff;
+			text-decoration: none;
+			border-radius: 5px;
+		}
 
-	.h-logo a {
-		font-size: 28px;
-		font-weight: bold;
-		text-decoration: none;
-		color: #fff;
-	}
+		.content {
+			margin-top: 50px;
+		}
 
-	.nav-wrap {
-		margin-top: 25px;
-	}
+		.content-top {
+			display: flex;
+			justify-content: space-between;
+		}
 
-	.group {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-	}
+		.listview_1_of_3 {
+			width: 70%;
+		}
 
-	.group li {
-		float: left;
-	}
+		.listview_1_of_3 h3 {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 20px;
+			color: #333;
+		}
 
-	.group li a {
-		display: block;
-		padding: 10px 15px;
-		font-size: 18px;
-		font-weight: bold;
-		text-decoration: none;
-		color: #fff;
-	}
+		.listview_1_of_3 .content-left {
+			display: flex;
+			margin-bottom: 20px;
+		}
 
-	.group li a:hover {
-		color: #ffd700;
-	}
+		.listview_1_of_3 .listimg_1_of_2 {
+			width: 30%;
+		}
 
-	.block {
-		padding: 100px 0;
-		text-align: center;
-		color: #fff;
-		height: 100vh;
-	}
+		.listview_1_of_3 .listimg_1_of_2 img {
+			width: 100%;
+			height: auto;
+		}
 
-	.block h2 {
-		font-size: 48px;
-		font-weight: bold;
-		margin-bottom: 30px;
-	}
+		.listview_1_of_3 .text {
+			width: 70%;
+			padding-left: 15px;
+			box-sizing: border-box;
+		}
 
-	.block p {
-		font-size: 24px;
-		margin-bottom: 30px;
-	}
+		.listview_1_of_3 .text .extra-wrap {
+			font-size: 16px;
+			color: #666;
+		}
 
-	.block .btn {
-		display: inline-block;
-		padding: 15px 30px;
-		font-size: 18px;
-		font-weight: bold;
-		text-decoration: none;
-		background-color: #ffd700;
-		color: #333;
-		border-radius: 5px;
-		transition: background-color 0.3s ease;
-	}
+		.movie-sidebar {
+			width: 50%;
+		}
 
-	.block .btn:hover {
-		background-color: #ffcc00;
-	}
+		.movie-sidebar h3 {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 20px;
+			color: #333;
+		}
 
-	.content {
-		padding: 100px 0;
-		text-align: center;
-		color: #333;
-	}
+		.movie-sidebar .content-left {
+			display: flex;
+			margin-bottom: 20px;
+		}
 
-	.content h2 {
-		font-size: 48px;
-		font-weight: bold;
-		margin-bottom: 30px;
-	}
+		.movie-sidebar .listimg_1_of_2 {
+			width: 40%;
+		}
 
-	.content p {
-		font-size: 24px;
-		margin-bottom: 30px;
-	}
+		.movie-sidebar .listimg_1_of_2 img {
+			width: 100%;
+			height: auto;
+		}
 
-	.content .btn {
-		display: inline-block;
-		padding: 15px 30px;
-		font-size: 18px;
-		font-weight: bold;
-		text-decoration: none;
-		background-color: #ffd700;
-		color: #333;
-		border-radius: 5px;
-		transition: background-color 0.3s ease;
-	}
+		.movie-sidebar .text {
+			width: 60%;
+			padding-left: 15px;
+			box-sizing: border-box;
+		}
 
-	.content .btn:hover {
-		background-color: #ffcc00;
-	}
-</style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		.movie-sidebar .text .extra-wrap1 {
+			font-size: 16px;
+			color: #666;
+		}
+	</style>
 </head>
 <body>
-<div class="header">
-	<div class="container">
-		<div class="h-logo">
-			<a href="index.php">WestLondon Theatre</a>
-		</div>
-		<div class="nav-wrap">
-			<ul class="group" id="example-one">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="movies_events.php">Movies</a></li>
-				<li>
-					<?php if(isset($_SESSION['user'])){
-						$us = mysqli_query($con,"select * from tbl_registration where user_id='".$_SESSION['user']."'");
-						$user = mysqli_fetch_array($us);
-						?>
-						<a href="profile.php"><?php echo $user['name'];?></a>
-						<a href="logout.php">Logout</a>
-					<?php }else{ ?>
-						<a href="login.php">Login</a>
-					<?php } ?>
-				</li>
-			</ul>
-		</div>
-		<div class="clear"></div>
-	</div>
-</div>
+<?php include('header.php'); ?>
+
 <div class="block">
 	<div class="container">
 		<h2>Welcome to WestLondon Theatre</h2>
@@ -173,13 +124,40 @@ date_default_timezone_set('Europe/London');
 </div>
 
 <div class="content" id="events-section">
-	<div class="container">
-		<h2>Current Shows</h2>
-		<!-- Content for the "Current Shows" section -->
+	<div class="wrap">
+		<div class="content-top">
+		<?php include('movie_sidebar.php'); ?>
+			<div class="listview_1_of_3 images_1_of_3">
+				<h3>Upcoming Shows</h3>
+				<?php
+				$qry3 = mysqli_query($con, "SELECT * FROM tbl_news");
+
+				while ($n = mysqli_fetch_array($qry3)) {
+				?>
+					<div class="content-left">
+						<div class="listimg listimg_1_of_2">
+							<img src="admin/<?php echo $n['attachment']; ?>">
+						</div>
+						<div class="text list_1_of_2">
+							<div class="extra-wrap">
+								<span style="text-color:#000" class="data"><strong><?php echo $n['name']; ?></strong><br>
+								<span style="text-color:#000" class="data"><strong>Artist: <?php echo $n['cast']; ?></strong><br>
+								<div class="data">Date: <?php echo $n['news_date']; ?></div>
+								<span class="text-top"><?php echo $n['description']; ?></span>
+							</div>
+						</div>
+						<div class="clear"></div>
+					</div>
+				<?php
+				}
+				?>
+			</div>
+
+			
+		</div>
 	</div>
 </div>
 
-<!-- Rest of your code for the upcoming movies and other sections -->
-
+<?php include('footer.php'); ?>
 </body>
 </html>

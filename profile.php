@@ -91,13 +91,17 @@ if(!isset($_SESSION['user']))
 					<h3>No Previous Bookings</h3>
 					<?php
 				}
-				?>
-					</div>			
-				<?php include('movie_sidebar.php');?>
 				
+				?>
+				<?php include('movie_sidebar.php');?>
+					</div>			
+				
+					
 			</div>
+			
 				<div class="clear"></div>		
 			</div>
+			
 	</div>
 </div>
 <?php include('footer.php');?>

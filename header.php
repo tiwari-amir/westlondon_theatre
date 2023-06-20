@@ -9,10 +9,12 @@ date_default_timezone_set('Europe/London');
 <title>WestLondon Theatre | Welcome</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 	body {
 		background-image: url("https://c1.wallpaperflare.com/path/570/413/91/interior-theatre-theater-empty-theater-87d7d2e44fd62221f578a00975ca3cab.jpg");
-		background-size: cover;
+		background-size: 100%;
 		margin: 0;
 		padding: 0;
 	}
@@ -104,42 +106,7 @@ date_default_timezone_set('Europe/London');
 	.block .btn:hover {
 		background-color: #ffcc00;
 	}
-
-	.content {
-		padding: 100px 0;
-		text-align: center;
-		color: #333;
-	}
-
-	.content h2 {
-		font-size: 48px;
-		font-weight: bold;
-		margin-bottom: 30px;
-	}
-
-	.content p {
-		font-size: 24px;
-		margin-bottom: 30px;
-	}
-
-	.content .btn {
-		display: inline-block;
-		padding: 15px 30px;
-		font-size: 18px;
-		font-weight: bold;
-		text-decoration: none;
-		background-color: #ffd700;
-		color: #333;
-		border-radius: 5px;
-		transition: background-color 0.3s ease;
-	}
-
-	.content .btn:hover {
-		background-color: #ffcc00;
-	}
 </style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="header">
@@ -150,7 +117,7 @@ date_default_timezone_set('Europe/London');
 		<div class="nav-wrap">
 			<ul class="group" id="example-one">
 				<li><a href="index.php">Home</a></li>
-				<li><a href="movies_events.php">Movies</a></li>
+				<li><a href="movies_events.php">Shows</a></li>
 				<li>
 					<?php if(isset($_SESSION['user'])){
 						$us = mysqli_query($con,"select * from tbl_registration where user_id='".$_SESSION['user']."'");
@@ -162,19 +129,8 @@ date_default_timezone_set('Europe/London');
 						<a href="login.php">Login</a>
 					<?php } ?>
 				</li>
-				<li>
-					<form action="process_search.php" method="post" onsubmit="return myFunction()">
-						<input type="text" placeholder="Search Movies Here..." name="search">
-						<input type="submit" value="Search">
-					</form>
-				</li>
 			</ul>
 		</div>
 		<div class="clear"></div>
 	</div>
 </div>
-
-<!-- Rest of your code for the upcoming movies and other sections -->
-
-</body>
-</html>

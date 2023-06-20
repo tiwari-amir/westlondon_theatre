@@ -16,7 +16,7 @@
 									<p class="p-link" style="font-size:15px">Cast : <?php echo $movie['cast']; ?></p>
 									<p class="p-link" style="font-size:15px">Relece Date : <?php echo date('d-M-Y',strtotime($movie['release_date'])); ?></p>
 									<p style="font-size:15px"><?php echo $movie['desc']; ?></p>
-									<a href="<?php echo $movie['video_url']; ?>" target="_blank" class="watch_but">Watch Trailer</a>
+									
 								</div>
 								<div class="clear"></div>
 							</div>
@@ -66,8 +66,9 @@
 							?>
 						
 					</div>			
-				<?php include('movie_sidebar.php');?>
+				
 			</div>
+			<?php include('movie_sidebar.php');?>
 				<div class="clear"></div>		
 			</div>
 	</div>

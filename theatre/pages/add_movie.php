@@ -58,8 +58,7 @@ include('header.php');
               <?php $frm->validate("image",array("required","label"=>"Image")); // Validating form using form builder written in form.php ?>
             </div>
             <div class="form-group">
-              <label class="control-label">Trailer Youtube Link</label>
-              <input type="text" name="video" class="form-control"/>
+              
               <?php $frm->validate("video",array("label"=>"Image","max"=>"500")); // Validating form using form builder written in form.php ?>
             </div>
             <div class="form-group">
