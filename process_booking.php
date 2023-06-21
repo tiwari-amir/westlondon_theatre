@@ -56,6 +56,7 @@ if(!isset($_SESSION['user']))
     $_SESSION['seats']=$seats;
     $_SESSION['amount']=$amount;
     $_SESSION['date']=$date;
+    $selectedSeats = $_SESSION['selectedseats'];
     header('location:bank.php');
 ?>
 <script>

@@ -1,130 +1,129 @@
 <style>
-.content {
-	padding-bottom: 0px !important;
-}
+	.content {
+		padding-bottom: 0px !important;
+	}
 
-.wrap {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 20px;
-}
+	.wrap {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
 
-.content-top {
-	margin-top: 30px;
-}
+	.content-top {
+		margin-top: 30px;
+	}
 
-.section {
-	margin-bottom: 30px;
-}
+	.section {
+		margin-bottom: 30px;
+	}
 
-.about {
-	width: 50%;
-	float: left;
-}
+	.about {
+		width: 50%;
+		float: left;
+	}
 
-.about-top {
-	margin-top: 30px;
-	display: flex;
-	align-items: flex-start;
-}
+	.about-top {
+		margin-top: 30px;
+		display: flex;
+		align-items: flex-start;
+	}
 
-.grid.images_3_of_2 {
-	width: 40%;
-	margin-right: 30px;
-}
+	.grid.images_3_of_2 {
+		width: 40%;
+		margin-right: 30px;
+	}
 
-.grid.images_3_of_2 img {
-	width: 100%;
-	height: auto;
-}
+	.grid.images_3_of_2 img {
+		width: 100%;
+		height: auto;
+	}
 
-.desc {
-	width: 60%;
-}
+	.desc {
+		width: 60%;
+	}
 
-.p-link {
-	margin: 0;
-	font-size: 15px;
-}
+	.p-link {
+		margin: 0;
+		font-size: 15px;
+	}
 
-.watch_but {
-	display: inline-block;
-	margin-top: 20px;
-	padding: 10px 20px;
-	background-color: #207cca;
-	color: #fff;
-	text-decoration: none;
-	border-radius: 4px;
-	transition: background-color 0.3s ease;
-}
+	.watch_but {
+		display: inline-block;
+		margin-top: 20px;
+		padding: 10px 20px;
+		background-color: #207cca;
+		color: #fff;
+		text-decoration: none;
+		border-radius: 4px;
+		transition: background-color 0.3s ease;
+	}
 
-.watch_but:hover {
-	background-color: #134d82;
-}
+	.watch_but:hover {
+		background-color: #134d82;
+	}
 
-.table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 30px;
-}
+	.table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-top: 30px;
+	}
 
-.table td {
-	padding: 10px;
-}
+	.table td {
+		padding: 10px;
+	}
 
-.btn {
-	display: inline-block;
-	padding: 6px 12px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 1.42857143;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	-ms-touch-action: manipulation;
-	touch-action: manipulation;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-image: none;
-	border: 1px solid transparent;
-	border-radius: 4px;
-}
+	.btn {
+		display: inline-block;
+		padding: 6px 12px;
+		margin-bottom: 0;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.42857143;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		-ms-touch-action: manipulation;
+		touch-action: manipulation;
+		cursor: pointer;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		background-image: none;
+		border: 1px solid transparent;
+		border-radius: 4px;
+	}
 
-.btn-default {
-	color: #333;
-	background-color: #fff;
-	border-color: #ccc;
-}
+	.btn-default {
+		color: #333;
+		background-color: #fff;
+		border-color: #ccc;
+	}
 
-.btn-info {
-	color: #fff;
-	background-color: #5bc0de;
-	border-color: #46b8da;
-}
+	.btn-info {
+		color: #fff;
+		background-color: #5bc0de;
+		border-color: #46b8da;
+	}
 
-.btn-info:hover {
-	color: #fff;
-	background-color: #31b0d5;
-	border-color: #269abc;
-}
+	.btn-info:hover {
+		color: #fff;
+		background-color: #31b0d5;
+		border-color: #269abc;
+	}
 
-.btn-danger {
-	color: #fff;
-	background-color: #d9534f;
-	border-color: #d43f3a;
-}
+	.btn-danger {
+		color: #fff;
+		background-color: #d9534f;
+		border-color: #d43f3a;
+	}
 
-.btn-danger:hover {
-	color: #fff;
-	background-color: #c9302c;
-	border-color: #ac2925;
-}
+	.btn-danger:hover {
+		color: #fff;
+		background-color: #c9302c;
+		border-color: #ac2925;
+	}
 </style>
-
 <?php
 include('header.php');
 if (!isset($_SESSION['user'])) {
@@ -145,8 +144,8 @@ $movie = mysqli_fetch_array($qry2);
 							<img src="<?php echo $movie['image']; ?>" alt="" />
 						</div>
 						<div class="desc span_3_of_2">
-							<p class="p-link" style="font-size:15px">Cast: <?php echo $movie['cast']; ?></p>
-							<p class="p-link" style="font-size:15px">Release Date: <?php echo date('d-M-Y', strtotime($movie['release_date'])); ?></p>
+							<p class="p-link" style="font-size:15px">Artist: <?php echo $movie['cast']; ?></p>
+							<p class="p-link" style="font-size:15px">Date: <?php echo date('d-M-Y', strtotime($movie['release_date'])); ?></p>
 							<p style="font-size:15px"><?php echo $movie['desc']; ?></p>
 							
 						</div>
@@ -221,7 +220,12 @@ $movie = mysqli_fetch_array($qry2);
 								<td>
 									<?php echo date('h:i A', strtotime($ttme['start_time'])) . " " . $ttme['name']; ?> Show
 								</td>
-							</tr>	
+							</tr>
+							<tr>
+								<td colspan=2>
+								
+								</td>
+										</tr>	
 							<tr>
 								<td>
 									Number of Seats
@@ -229,20 +233,31 @@ $movie = mysqli_fetch_array($qry2);
 								<td>
 									<form action="process_booking.php" method="post">
 										<input type="hidden" name="screen" value="<?php echo $screen['screen_id']; ?>" />
-										
-										<input type="number" required title="Number of Seats" max="<?php echo $screen['seats'] - $avl[0]; ?>" min="0" name="seats" class="form-control" value="1" style="text-align:center" id="seats" />
+										<input type="text" required title="Number of Seats" max="<?php echo $screen['seats'] - $avl[0]; ?>" min="0" name="seats" class="form-control" value=""  style="text-align:center" id="seats"/ readonly>
 										<input type="hidden" name="amount" id="hm" value="<?php echo $screen['charge']; ?>" />
 										<input type="hidden" name="date" value="<?php echo $date; ?>" />
+										
 								</td>
 							</tr>
 							<tr>
+							<tr>
+								<td>
+								Selected Seats
+								</td>
+								<td> 
+								<span id="seat-details" name="selectedseats"></span>
+								<br>
+								
+
+							</td>
+							</tr>
 								<td>
 									Amount
 								</td>
-								<td id="amount" style="font-weight:bold;font-size:18px">
-									Rs <?php echo $screen['charge']; ?>
+								<td id="amount-value" style="font-weight:bold;font-size:18px">
+									£ <?php echo $screen['charge']; ?>
 								</td>
-							</tr>
+								</tr>	
 							<tr>
 								<td colspan="2"><?php if ($avl[0] == $screen['seats']) { ?><button type="button" class="btn btn-danger" style="width:100%">House Full</button><?php } else { ?>
 											<button class="btn btn-info" style="width:100%">Book Now</button>
@@ -265,11 +280,27 @@ $movie = mysqli_fetch_array($qry2);
 					</div>
 				</div>
 				<?php include('footer.php'); ?>
-				<script type="text/javascript">
-					$('#seats').change(function () {
-						var charge = <?php echo $screen['charge']; ?>;
-						amount = charge * $(this).val();
-						$('#amount').html("Rs " + amount);
-						$('#hm').val(amount);
-					});
-				</script>
+				<?php
+				//$charge = $screen['charge']; // Assuming $screen['charge'] holds the desired value
+				?>
+				<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    var charge = <?php echo $screen['charge']; ?>;
+
+    $('#seats').change(function() {
+      var seats = $(this).val();
+      var amount = charge * seats;
+      $('#amount-value').html("£ " + amount);
+      $('#amount').val(amount);
+    });
+  });
+</script>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

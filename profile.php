@@ -21,11 +21,12 @@ if(!isset($_SESSION['user']))
 					<table class="table table-bordered">
 						<thead>
 						<th>Booking Id</th>
-						<th>Movie</th>
+						<th>Performance Name</th>
 						<th>Theatre</th>
 						<th>Screen</th>
 						<th>Show</th>
-						<th>Seats</th>
+						<th>Number of Seats</th>
+						<th> Seats Selected</th>
 						<th>Amount</th>
 						<th></th>
 						</thead>
@@ -62,7 +63,10 @@ if(!isset($_SESSION['user']))
 									<?php echo $bkg['no_seats'];?>
 								</td>
 								<td>
-									Rs <?php echo $bkg['amount'];?>
+									<?php echo $bkg['seat_details'];?>
+								</td>
+								<td>
+									£ <?php echo $bkg['amount'];?>
 								</td>
 								<td>
 									<?php  if($bkg['ticket_date']<date('Y-m-d'))

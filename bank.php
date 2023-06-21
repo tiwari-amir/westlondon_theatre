@@ -31,12 +31,12 @@ extract($_POST);
 
 <div id="mainContainer" class="row large-centered">
 
-  <div class="text-center"><h2>BANK</h2></div>
+  <div class="text-center"><h2>UWL BANK</h2></div>
   
   <hr class="divider">
   <dl class="mercDetails">
-  	<dt>Merchant</dt> 				<dd>Shop Street</dd>
-    <dt>Transaction Amount</dt> 	<dd>INR <?php echo  $_SESSION['amount'];?></dd>
+  	<dt>Merchant</dt> 				<dd>WestLondon Theatre</dd>
+    <dt>Transaction Amount</dt> 	<dd>GBP <?php echo  $_SESSION['amount'];?></dd>
     <dt>Debit Card</dt> 		<dd><?php echo  $number;?></%></dd>
   </dl>
   <hr class="divider">
