@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('config.php');
+include('../../config.php');
 
 $bookingId = $_GET['id'];
 
@@ -25,5 +25,5 @@ if ($hoursDiff <= 24) {
     $_SESSION['success'] = "Booking Cancelled Successfully";
 }
 
-header('location:profile.php');
+header('location:view_bookings.php');
 ?>

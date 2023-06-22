@@ -12,8 +12,7 @@ include('header.php');
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="add_theater.php">Add Theater</a></li>
-        <li class="active">Add Theater Details</li>
+        <li class="active">Theater Details</li>
       </ol>
     </section>
 
@@ -27,7 +26,7 @@ include('header.php');
             </div>
         <div class="box-body">
           <?php
-            $th=mysqli_query($con,"select * from tbl_theatre where id='".$_GET['id']."'");
+            $th=mysqli_query($con,"select * from tbl_theatre where id='".$_SESSION['theatre']."'");
             $theatre=mysqli_fetch_array($th);
           ?>
             <table class="table table-bordered table-hover">
@@ -61,7 +60,7 @@ include('header.php');
             </div>
         <div class="box-body" id="screendtls">
           <?php
-            $sr=mysqli_query($con,"select * from tbl_screens where t_id='".$_GET['id']."'");
+            $sr=mysqli_query($con,"select * from tbl_screens where t_id='".$_SESSION['theatre']."'");
             if(mysqli_num_rows($sr))
             {
           ?>
@@ -187,7 +186,7 @@ include('footer.php');
     $.ajax({
 			url: 'get_screen_dtls.php',
 			type: 'POST',
-			data: 'id='+<?php echo $_GET['id'];?>,
+			data: 'id='+<?php echo $_SESSION['theatre'];?>,
 			dataType: 'html'
 		})
 		.done(function(data){
@@ -210,7 +209,7 @@ include('footer.php');
   		$.ajax({
   			url: 'add_screen_form.php',
   			type: 'POST',
-  			data: 'id='+<?php echo $_GET['id'];?>,
+  			data: 'id='+<?php echo $_SESSION['theatre'];?>,
   			dataType: 'html'
   		})
   		.done(function(data){
@@ -264,7 +263,7 @@ $(document).on('click', '#savescreen', function(){
     $.ajax({
   			url: 'save_screen.php',
   			type: 'POST',
-  			data: 'theatre='+<?php echo $_GET['id'];?>+'&name='+name+'&charge='+charge+'&seats='+seats,
+  			data: 'theatre='+<?php echo $_SESSION['theatre'];?>+'&name='+name+'&charge='+charge+'&seats='+seats,
   			dataType: 'html'
   		})
   		.done(function(data){

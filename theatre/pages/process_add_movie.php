@@ -1,17 +1,35 @@
 <?php
     session_start();
     include('../../config.php');
-    extract($_POST);
-    
     $target_dir = "../../images/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
+    $flname = "images/" . basename($_FILES["image"]["name"]);
     
-    $flname="images/".basename($_FILES["image"]["name"]);
+    $name = isset($_POST['name']) ? $_POST['name'] : '';
+    $cast = isset($_POST['cast']) ? $_POST['cast'] : '';
+    $desc = isset($_POST['desc']) ? $_POST['desc'] : '';
+    $rdate = isset($_POST['rdate']) ? $_POST['rdate'] : '';
+
+    // Check if the movie name is empty
+    if (empty($name)) {
+        $_SESSION['error'] = "Movie name cannot be empty";
+        header('location:add_movie.php');
+        exit;
+    }
+
+    // Prepare the query with placeholders
+    $query = "INSERT INTO tbl_movie VALUES (NULL, ?, ?, ?, ?, ?, ?, '0')";
+    $statement = mysqli_prepare($con, $query);
     
-    mysqli_query($con,"insert into  tbl_movie values(NULL,'".$_SESSION['theatre']."','$name','$cast','$desc','$rdate','$flname','$video','0')");
+    // Bind parameters to the statement
+    mysqli_stmt_bind_param($statement, "ssssss", $_SESSION['theatre'], $name, $cast, $desc, $rdate, $flname);
+    
+    // Execute the prepared statement
+    mysqli_stmt_execute($statement);
     
     move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
     
-    $_SESSION['success']="Movie Added";
+    $_SESSION['success'] = "Movie Added";
     header('location:add_movie.php');
+    exit;
 ?>

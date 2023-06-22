@@ -1,25 +1,45 @@
-<?php include('header.php');
-if(!isset($_SESSION['user']))
-{
-	header('location:login.php');
-}
-	$qry2=mysqli_query($con,"select * from tbl_movie where movie_id='".$_SESSION['movie']."'");
-	$movie=mysqli_fetch_array($qry2);
-	?>
-<div class="content">
-	<div class="wrap">
-		<div class="content-top">
-				<div class="section group">
-					<div class="about span_1_of_2">	
+<?php
+include('header.php');
+?>
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        View Bookings
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">view_bookings</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box --> 
+      <div class="box">
+        <div class="box-body">
+            
+            <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Booking List</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <div class="about span_1_of_2">	
 						<h3>BOOKINGS</h3>
 						<?php include('msgbox.php');?>
 						<?php
-				$bk=mysqli_query($con,"select * from tbl_bookings where user_id='".$_SESSION['user']."'");
+				$bk=mysqli_query($con,"select * from tbl_bookings");
 				if(mysqli_num_rows($bk))
 				{
 					?>
 					<table class="table table-bordered">
 						<thead>
+						<th>Customer Name</th>
 						<th>Booking Id</th>
 						<th>Performance Name</th>
 						<th>Theatre</th>
@@ -43,8 +63,13 @@ if(!isset($_SESSION['user']))
 							$thr=mysqli_fetch_array($tt);
 							$st=mysqli_query($con,"select * from tbl_show_time where st_id=(select st_id from tbl_shows where s_id='".$bkg['show_id']."')");
 							$stm=mysqli_fetch_array($st);
+							$cst=mysqli_query($con,"select * from tbl_registration where user_id='".$bkg['user_id']."'");
+							$cstm=mysqli_fetch_array($cst);
 							?>
 							<tr>
+								<td>
+									<?php echo $cstm['name'];?>
+								</td>
 								<td>
 									<?php echo $bkg['ticket_id'];?>
 								</td>
@@ -102,22 +127,20 @@ if(!isset($_SESSION['user']))
 				
 				?>
 				
-					</div>			
-				
-					
-			</div>
-			<?php include('movie_sidebar.php');?>
-				<div class="clear"></div>		
-			</div>
-			
-	</div>
-</div>
-<?php include('footer.php');?>
-<script type="text/javascript">
-	$('#seats').change(function(){
-		var charge=<?php echo $screen['charge'];?>;
-		amount=charge*$(this).val();
-		$('#amount').html("Rs "+amount);
-		$('#hm').val(amount);
-	});
-</script>
+					</div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+            
+            
+        </div> 
+        <!-- /.box-footer-->
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <?php
+include('footer.php');
+?>

@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html>
+
 <head>
-	<title>Current Shows/Movies</title>
+	<title>Staff-Customer Booking</title>
 	<style>
 		.content {
 			padding-bottom: 0px !important;
@@ -69,13 +68,33 @@
 			clear: both;
 		}
 	</style>
-</head>
-<body>
-	<?php include('header.php'); ?>
-	<div class="content">
+</head><?php
+include('header.php');
+?>
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Select From Movies/Shows To Book
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Movies List</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box --> 
+      <div class="box">
+      <div class="content">
 		<div class="wrap">
 			<div class="content-top">
-				<h3>Current Shows/Movies</h3>
+				<h3>Current Movies/Shows...</h3>
 
 				<?php
 				$today = date("Y-m-d");
@@ -88,7 +107,7 @@
 					<div class="col_1_of_4">
 						<div class="imageRow">
 							<div class="single">
-								<a href="about.php?id=<?php echo $m['movie_id']; ?>"><img src="<?php echo $m['image']; ?>" alt="" /></a>
+								<a href="about.php?id=<?php echo $m['movie_id']; ?>"><img src="../../<?php echo $m['image']; ?>" alt="" /></a>
 							</div>
 							<div class="movie-text">
 								<h4 class="h-text"><a href="about.php?id=<?php echo $m['movie_id']; ?>"><?php echo $m['movie_name']; ?></a></h4>
@@ -110,6 +129,14 @@
 			<div class="clear"></div>
 		</div>
 	</div>
-	<?php include('footer.php'); ?>
-</body>
-</html>
+        </div> 
+        <!-- /.box-footer-->
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <?php
+include('footer.php');
+?>

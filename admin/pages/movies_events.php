@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Current Shows/Movies</title>
+	<title>Select From Movies/Shows To Book</title>
 	<style>
 		.content {
 			padding-bottom: 0px !important;

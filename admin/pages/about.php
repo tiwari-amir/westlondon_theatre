@@ -1,8 +1,34 @@
-<?php include('header.php');
-	$qry2=mysqli_query($con,"select * from tbl_movie where movie_id='".$_GET['id']."'");
+<?php
+include('header.php');
+$qry2=mysqli_query($con,"select * from tbl_movie where movie_id='".$_GET['id']."'");
 	$movie=mysqli_fetch_array($qry2);
-	?>
-<div class="content">
+?>
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Select Theatre/Show time
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="index"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">select_theatre</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box --> 
+      <div class="box">
+        <div class="box-body">
+            <div class="box box-primary">
+            <!-- /.box-header -->
+            <div class="box-body">
+              
+			  <div class="content">
 	<div class="wrap">
 		<div class="content-top">
 				<div class="section group">
@@ -10,7 +36,7 @@
 						<h3><?php echo $movie['movie_name']; ?></h3>	
 							<div class="about-top">	
 								<div class="grid images_3_of_2">
-									<img src="<?php echo $movie['image']; ?>" alt=""/>
+									<img height=300 width=200 src="../../<?php echo $movie['image']; ?>" alt=""/>
 								</div>
 								<div class="desc span_3_of_2">
 									<p class="p-link" style="font-size:15px">Artist/Cast : <?php echo $movie['cast']; ?></p>
@@ -68,9 +94,21 @@
 					</div>			
 				
 			</div>
-			<?php include('movie_sidebar.php');?>
 				<div class="clear"></div>		
 			</div>
 	</div>
 </div>
-<?php include('footer.php');?>
+			  
+            </div>
+          </div>
+        </div> 
+        <!-- /.box-footer-->
+      </div>
+      <!-- /.box -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <?php
+include('footer.php');
+?>

@@ -38,7 +38,7 @@
     margin-bottom: 20px;
   }
   .seatscreen{
-    margin-top: 450;
+    margin-top: 150;
   }
 </style>
 <div class="seatscreen">

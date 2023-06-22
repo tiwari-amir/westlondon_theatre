@@ -128,7 +128,7 @@
 		<div class="content-top">
 		<?php include('movie_sidebar.php'); ?>
 			<div class="listview_1_of_3 images_1_of_3">
-				<h3>Upcoming Shows</h3>
+				<h3>Upcoming Shows/Movies</h3>
 				<?php
 				$qry3 = mysqli_query($con, "SELECT * FROM tbl_news");
 

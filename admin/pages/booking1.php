@@ -277,7 +277,6 @@
 								</div>
 								<div class="clear"></div>
 							</div>
-							<?php include('movie_sidebar.php');?>
 						</div>
 						
 					</div>

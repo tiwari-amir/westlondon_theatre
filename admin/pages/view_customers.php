@@ -8,11 +8,11 @@ include('header.php');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Admin Dashboard
+        View Customers
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Home</li>
+        <li class="active">view_customers</li>
       </ol>
     </section>
 
@@ -25,34 +25,31 @@ include('header.php');
             
             <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Running Movies</h3>
+              <h3 class="box-title">Customer List</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
               <table class="table table-condensed">
                 <tr>
-                  <th class="col-md-1">No</th>
-                  <th class="col-md-3">Show Time</th>
-                  <th class="col-md-4">Screen</th>
-                  <th class="col-md-4">Movie</th>
+                  <th class="col-md-1">S.N.</th>
+                  <th class="col-md-3">Name</th>
+                  <th class="col-md-4">Email</th>
+                  <th class="col-md-4">Phone</th>
+				  <th class="col-md-4">Age</th>
+				  <th class="col-md-4">Gender</th>
                 </tr>
                 <?php 
-					$qry8=mysqli_query($con,"select * from tbl_shows where r_status=1 and theatre_id='".$_SESSION['theatre']."'");
+					$qry8=mysqli_query($con,"select * from tbl_registration");
 					$no=1;
-					while($mn=mysqli_fetch_array($qry8))
-					{
-					 $qry9=mysqli_query($con,"select * from tbl_movie where movie_id='".$mn['movie_id']."'");
-					 $mov=mysqli_fetch_array($qry9);
-					 $qry10=mysqli_query($con,"select * from tbl_show_time where st_id='".$mn['st_id']."'");
-					 $scr=mysqli_fetch_array($qry10);
-					 $qry11=mysqli_query($con,"select * from tbl_screens where screen_id='".$scr['screen_id']."'");
-					 $scn=mysqli_fetch_array($qry11);
+					while($scn=mysqli_fetch_array($qry8)) {
 					?>
                 <tr>
                   <td><?php echo $no;?></td>
-                  <td><span class="badge bg-green"><?php echo $scn['screen_name'];?></span></td>
-                  <td><span class="badge bg-light-blue"><?php echo $scr['start_time'];?>(<?php echo $scr['name'];?>)</span></td>
-                  <td><?php echo $mov['movie_name'];?></td>
+                  <td><span class="badge bg-blue"><?php echo $scn['name'];?></span></td>
+				  <td><span class="badge bg-green"><?php echo $scn['email'];?></span></td>
+				  <td><span class="badge bg-cyan"><?php echo $scn['phone'];?></span></td>
+				  <td><span class="badge bg-green"><?php echo $scn['age'];?></span></td>
+				  <td><span class="badge bg-green"><?php echo $scn['gender'];?></span></td>
                   </tr>
                   <?php
 					       $no=$no+1;

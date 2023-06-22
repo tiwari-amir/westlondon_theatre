@@ -49,7 +49,7 @@
 </style>
 
 <div class="movie-sidebar">
-  <h3>Current Shows</h3>
+  <h3>Current Shows/Movies</h3>
   <?php
   $today = date("Y-m-d");
   $qry2 = mysqli_query($con, "SELECT * FROM tbl_movie WHERE status='0' ORDER BY rand() LIMIT 3");
@@ -63,7 +63,7 @@
       <div class="text list_1_of_2">
         <div class="extra-wrap1">
           <a href="about.php?id=<?php echo $m['movie_id']; ?>" class="link4"><?php echo $m['movie_name']; ?></a><br>
-          <span class="data">Date: <?php echo $m['release_date']; ?></span><br>
+          <span class="data">Start Date: <?php echo $m['release_date']; ?></span><br>
           Artist: <span class="data"><?php echo $m['cast']; ?></span><br>
           Description: <span class="color2"><?php echo $m['desc']; ?></span><br>
         </div>

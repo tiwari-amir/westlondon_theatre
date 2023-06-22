@@ -68,7 +68,6 @@
 					</div>			
 				
 			</div>
-			<?php include('movie_sidebar.php');?>
 				<div class="clear"></div>		
 			</div>
 	</div>
