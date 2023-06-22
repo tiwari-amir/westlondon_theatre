@@ -26,7 +26,7 @@ include('header.php');
             </div>
         <div class="box-body">
           <?php
-            $th=mysqli_query($con,"select * from tbl_theatre where id= 17");
+            $th=mysqli_query($con,"select * from tbl_theatre where id='".$_SESSION['theatre']."'");
             $theatre=mysqli_fetch_array($th);
           ?>
             <table class="table table-bordered table-hover">
@@ -60,7 +60,7 @@ include('header.php');
             </div>
         <div class="box-body" id="screendtls">
           <?php
-            $sr=mysqli_query($con,"select * from tbl_screens where t_id='17'");
+            $sr=mysqli_query($con,"select * from tbl_screens where t_id='".$_SESSION['theatre']."'");
             if(mysqli_num_rows($sr))
             {
           ?>

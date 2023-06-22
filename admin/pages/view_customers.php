@@ -8,11 +8,11 @@ include('header.php');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        View Customers
+        Admin Dashboard
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">view_customers</li>
+        <li class="active">Home</li>
       </ol>
     </section>
 
@@ -25,7 +25,7 @@ include('header.php');
             
             <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Customer List</h3>
+              <h3 class="box-title">Running Movies</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">

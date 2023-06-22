@@ -8,11 +8,11 @@ include('header.php');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Movies List
+        Admin Dashboard
       </h1>
       <ol class="breadcrumb">
-        <li><a href="index"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Movies List</li>
+        <li><a href="index.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Home</li>
       </ol>
     </section>
 
@@ -22,41 +22,49 @@ include('header.php');
       <!-- Default box --> 
       <div class="box">
         <div class="box-body">
-            <div class="box box-primary">
-            <!-- /.box-header -->
-            <div class="box-body">
-              <?php include('../../msgbox.php');?>
-              <ul class="todo-list">
-                 <?php 
-                        $qry7=mysqli_query($con,"select * from tbl_movie");
-                        if(mysqli_num_rows($qry7))
-                        {
-                        while($c=mysqli_fetch_array($qry7))
-                        {
-                        ?>
-                <li>
-                  <!-- drag handle -->
-                      <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                      </span>
-                  <!-- checkbox -->
-                  <!-- todo text -->
-                  <span class="text"><?php echo $c['movie_name'];?></span>
-                  <!-- Emphasis label -->
-                  
-                  <!-- General tools such as edit or delete-->
-                  <div class="tools">
-                    
-                    <button class="fa fa-trash-o" onclick="del(<?php echo $c['movie_id'];?>)"></button>
-                  </div>
-                </li>
-                  <?php
-                       }}
-                     ?>
-                      
+            
+            <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Running Movies</h3>
             </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <table class="table table-condensed">
+                <tr>
+                  <th class="col-md-1">No</th>
+                  <th class="col-md-3">Show Time</th>
+                  <th class="col-md-4">Screen</th>
+                  <th class="col-md-4">Movie</th>
+                </tr>
+                <?php 
+					$qry8=mysqli_query($con,"select * from tbl_shows where r_status=1 and theatre_id='".$_SESSION['theatre']."'");
+					$no=1;
+					while($mn=mysqli_fetch_array($qry8))
+					{
+					 $qry9=mysqli_query($con,"select * from tbl_movie where movie_id='".$mn['movie_id']."'");
+					 $mov=mysqli_fetch_array($qry9);
+					 $qry10=mysqli_query($con,"select * from tbl_show_time where st_id='".$mn['st_id']."'");
+					 $scr=mysqli_fetch_array($qry10);
+					 $qry11=mysqli_query($con,"select * from tbl_screens where screen_id='".$scr['screen_id']."'");
+					 $scn=mysqli_fetch_array($qry11);
+					?>
+                <tr>
+                  <td><?php echo $no;?></td>
+                  <td><span class="badge bg-green"><?php echo $scn['screen_name'];?></span></td>
+                  <td><span class="badge bg-light-blue"><?php echo $scr['start_time'];?>(<?php echo $scr['name'];?>)</span></td>
+                  <td><?php echo $mov['movie_name'];?></td>
+                  </tr>
+                  <?php
+					       $no=$no+1;
+					  
+					}
+                  ?>
+              </table>
+            </div>
+            <!-- /.box-body -->
           </div>
+            
+            
         </div> 
         <!-- /.box-footer-->
       </div>
@@ -68,12 +76,3 @@ include('header.php');
   <?php
 include('footer.php');
 ?>
-<script>
-function del(m)
-    {
-        if (confirm("Are you want to delete this movie") == true) 
-        {
-            window.location="process_delete_movie.php?mid="+m;
-        } 
-    }
-    </script>

@@ -7,9 +7,9 @@ $qry=mysqli_query($con,"select * from tbl_login where username='$email' and pass
 if(mysqli_num_rows($qry))
 {
 	$usr=mysqli_fetch_array($qry);
-	if($usr['user_type']==0)
+	if($usr['user_type']==1)
 	{
-		$_SESSION['admin']=$usr['user_id'];
+		$_SESSION['theatre']=$usr['user_id'];
 		header('location:index.php');
 	}
 	else
@@ -17,6 +17,7 @@ if(mysqli_num_rows($qry))
 		$_SESSION['error']="Login Failed!";
 		header("location:../index.php");
 	}
+	
 }
 else
 {

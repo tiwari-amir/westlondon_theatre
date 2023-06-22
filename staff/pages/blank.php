@@ -11,7 +11,7 @@ include('header.php');
         Student Registration
       </h1>
       <ol class="breadcrumb">
-        <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
+        <li><a href="index"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Add Course</li>
       </ol>
     </section>
@@ -19,8 +19,7 @@ include('header.php');
     <!-- Main content -->
     <section class="content">
 
-      <!-- Default box -->
-      <div class="col-md-6">
+      <!-- Default box --> 
       <div class="box">
         <div class="box-body">
             
@@ -28,16 +27,7 @@ include('header.php');
         <!-- /.box-footer-->
       </div>
       <!-- /.box -->
-    </div>
-     <div class="col-md-6">
-      <div class="box">
-        <div class="box-body">
-            
-        </div> 
-        <!-- /.box-footer-->
-      </div>
-      <!-- /.box -->
-    </div>
+
     </section>
     <!-- /.content -->
   </div>
